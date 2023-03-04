@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+        <!-- ***** Featured Games Start ***** -->
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="featured-games header-text">
+              <div class="heading-section">
+                <h4><em>Live</em> Streams</h4>
+              </div>
+              <div class="owl-features owl-carousel">
+                
+                {% for game in games %}
+                  <div class="item">
+                    <div class="thumb">
+                      <img src="{{game.mimage}}" alt="">
+                      <div class="hover-effect">
+                        <h6>{{game.streams.count}} Streaming</h6>
+                      </div>
+                    </div>
+                    <h4><a href="{% url 'games:details' game.slug %}">{{game.name}}</a><br><span>{{game.downloaders.count}} Downloads</span></h4>
+                    <ul>
+                      <li><i class="fa fa-star"></i> {{game.rate}}</li>
+                      <li><i class="fa fa-download"></i> {{game.downloaders.count}}</li>
+                    </ul>
+                  </div>
+                {% endfor %}
+                  
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="top-streamers">
+              <div class="heading-section">
+                <h4><em>Top</em> Streamers</h4>
+              </div>
+              <ul>
+                {% for streamer in streamers %}
+                  {% if streamer.streams.count > 0 %}
+                    <li>
+                      <span>01</span>
+                      <img src="{{streamer.prfile.image}}" alt="" style="max-width: 46px; border-radius: 50%; margin-right: 15px;">
+                      <h6><i class="fa fa-check"></i> <a href="{% url 'accounts:profile' streamer.profile.slug %}">{{streamer.username}}</a></h6>
+                      <div class="main-button">
+                        <i class="fa fa-person text-white"></i>
+                      </div>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- ***** Featured Games End ***** -->
+
+        <!-- ***** Live Stream Start ***** -->
+        <div class="live-stream">
+          <div class="col-lg-12">
+            <div class="heading-section">
+              <h4><em>Most Popular</em> Live Stream</h4>
+            </div>
+          </div>
+          <div class="row">
+            
+            {% for stream in streams %}
+              {% if stream.status == True %}
+                <div class="col-lg-3 col-sm-6">
+                  <div class="item">
+                    <div class="thumb">
+                      <img src="{{stream.image}}" alt="">
+                      <div class="hover-effect">
+                        <div class="content">
+                          <div class="live">
+                            <a href="#">Live</a>
+                          </div>
+                          <ul>
+                            <li><a href="#"><i class="fa fa-eye"></i> {{stream.viewers.count}}</a></li>
+                            <li><a href="#"><i class="fa fa-gamepad"></i> {{stream.type}}</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="down-content">
+                      <div class="avatar">
+                        <img src="{{stream.streamer.profile.image}}" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+                      </div>
+                      <span><i class="fa fa-check"></i> <a href="{% url 'accounts:profile' stream.streamer.profile.slug %}">{{stream.streamer}}</a></span>
+                      <h4>{{stream.title}}</h4>
+                    </div> 
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+              
+            <div class="col-lg-12">
+              <div class="main-button">
+                <a href="{% url 'streams:streams' %}">Load More Streams</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ***** Live Stream End ***** -->
+
+
+{% endblock content %}

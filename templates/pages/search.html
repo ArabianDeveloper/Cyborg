@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="featured-games header-text">
+            <div class="heading-section">
+                <h4>Games</h4>
+            </div>
+            <div class="owl-features owl-carousel">
+            
+                {% for game in games %}
+                    <div class="item">
+                        <div class="thumb">
+                            <img src="{{game.mimage}}" alt="">
+                            <div class="hover-effect">
+                            <h6>{{game.streams.count}} Streaming</h6>
+                        </div>
+                        <h4><a href="{% url 'games:details' game.id%}">{{game.name}}</a><br><span>{{game.downloaders.count}} Downloads</span></h4>
+                        <ul>
+                            <li><i class="fa fa-star"></i> {{game.rate}}</li>
+                            <li><i class="fa fa-download"></i> {{game.downloaders.count}}</li>
+                        </ul>
+                    </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="featured-games header-text">
+            <div class="heading-section">
+                <h4>streams</h4>
+            </div>
+            <div class="owl-features owl-carousel">
+            
+                {% for stream in streams %}
+                    <div class="item">
+                        <div class="thumb">
+                            <img src="{{stream.image}}" alt="">
+                            <div class="hover-effect">
+                                <div class="content">
+                                    <div class="live">
+                                        <a href="#">Live</a>
+                                    </div>
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-eye"></i> {{stream.viewers.count}}</a></li>
+                                        <li><a href="#"><i class="fa fa-gamepad"></i> {{stream.type}}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="down-content">
+                            <div class="avatar">
+                            <img src="{{stream.streamer.profile.image}}" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+                            </div>
+                            <span><i class="fa fa-check"></i> {{stream.streamer}}</span>
+                            <h4>{{stream.title}}</h4>
+                        </div> 
+                    </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
