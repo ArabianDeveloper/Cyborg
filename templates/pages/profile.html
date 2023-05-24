@@ -66,11 +66,11 @@
 														</div>
 													</div>
 												{% endfor %}
-                        <div class="col-lg-12">
+                        {% comment %} <div class="col-lg-12">
                           <div class="main-button">
                             <a href="#">Load More Clips</a>
                           </div>
-                        </div>
+                        </div> {% endcomment %}
                       </div>
                     </div>
                   </div>
@@ -92,7 +92,7 @@
                   <div class="item">
                     <ul>
                       <li><img src="{{game.mimage}}" alt="" class="templatemo-item"></li>
-                      <li><h4>{{game.name}}</h4><span>{{game.company}}</span></li>
+                      <li><h4><a href="{% url 'games:details' game.slug %}">{{game.name}}</a></h4><span>{{game.company}}</span></li>
                       <li><h4>Date Added</h4><span>{{game.data_added}}</span></li>
                       <li><h4>Hours Played</h4><span>634 H 22 Mins</span></li>
                       <li><h4>Currently</h4><span>Downloaded</span></li>

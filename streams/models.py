@@ -14,7 +14,7 @@ class Stream(models.Model):
     game = models.OneToOneField("games.Game", on_delete=models.CASCADE, related_name='streams')
     image = models.URLField(max_length=255)
     type = models.ForeignKey(Type, on_delete=models.CASCADE)
-    viewers = models.ManyToManyField(User, related_name='stream_viewer', null=True, blank=True)
+    viewers = models.ManyToManyField(User, related_name='stream_viewer', blank=True)
     status = models.BooleanField(default=True)
 
     def __str__(self):

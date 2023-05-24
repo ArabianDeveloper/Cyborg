@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+from streams.models import Stream
+from clips.models import Clip
+from games.models import Game
 # Create your models here.
 
 class Profile(models.Model):

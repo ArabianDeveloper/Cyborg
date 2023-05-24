@@ -13,11 +13,19 @@
       <p>Please login to see this page.</p>
     {% endif %}
   {% endif %}
+  <style>
+    .helptext{
+      color: white;
+    }
+    label{
+      color: white;
+    }
 
+  </style>
   <form method="post" action="{% url 'accounts:login' %}">
     {% csrf_token %}
     {{form}}
-    <input type="submit" value="login"  class="boxed-btn3 w-100"/>
+    <input type="submit" class="w-100" value="Change password" style="border-radius: 10px;border:none;">
     <input type="hidden" name="next" value="{{next}}"/>
   </form>
 

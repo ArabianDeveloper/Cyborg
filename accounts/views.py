@@ -4,7 +4,18 @@ from .models import *
 # Create your views here.
 
 def profile (request, slug):
+
     pro = get_object_or_404(Profile, slug = slug)
+
+    context = {
+        'profile': pro,
+    }
+    return render(request, 'pages/profile.html', context)
+
+def UserProfile (request):
+
+    pro = get_object_or_404(Profile, slug=request.user.profile.slug)
+
     context = {
         'profile': pro,
     }

@@ -38,17 +38,15 @@
         4. clipper
 
 
-- uncomplate:
-    1. Dowload the game
+- uncomplete:
+    1. Download the game
     2. Start A live stream
     3. Follow your Friends
-    4. Online and offline users
-
-    5. Next url in login
-    6. The styling of the pages:
+    4. Online and Offline users
+    
+    5. The styling of pages:
+        3. login
         1. password change
         2. password reset
-        3. login
-
-    7. searching
-    8. Details page styling
+        4. search
+        5. Details page 
