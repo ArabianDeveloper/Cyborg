@@ -14,6 +14,8 @@
     3. Image
     4. Type
     5. Viewers
+    6. Stream
+
 
 - User
     1. Name
@@ -49,4 +51,3 @@
         1. password change
         2. password reset
         4. search
-        5. Details page 

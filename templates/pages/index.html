@@ -28,10 +28,10 @@
         <h4><em>Most Popular</em> Right Now</h4>
       </div>
       <div class="row">
-        {% for game in games %}
+        {% for game in games|slice:"4" %}
           <div class="col-lg-3 col-sm-6">
             <div class="item">
-              <img src="{{game.mimage}}" alt="">
+              <img src="{{game.mimage.url}}" alt="">
               <h4><a href="{% url 'games:details' game.slug %}">{{game.name}}</a><br><span>{{game.company}}</span></h4>
               <ul>
                 <li><i class="fa fa-star"></i>{{game.rate}}</li>
@@ -62,7 +62,7 @@
       {% for game in request.user.games.all %}
         <div class="item">
           <ul>
-            <li><img src="{{game.mimage}}" alt="" class="templatemo-item"></li>
+            <li><img src="{{game.mimage.url}}" alt="" class="templatemo-item"></li>
             <li><h4><a href="{% url 'games:details' game.slug %}">{{game.name}}</a></h4><span>{{game.company}}</span></li>
             <li><h4>Date Added</h4><span>{{game.data_added}}</span></li>
             <li><h4>Hours Played</h4><span>634 H 22 Mins</span></li>

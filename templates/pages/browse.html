@@ -17,7 +17,7 @@
                   {% for game in games %}
                     <div class="item">
                       <div class="thumb">
-                        <img src="{{game.mimage}}" alt="">
+                        <img src="{{game.mimage.url}}" alt="">
                         <div class="hover-effect">
                           <h6>{{game.streams.count}} Streaming</h6>
                         </div>
@@ -41,7 +41,7 @@
                 <ul>
                   {% for game in games|slice:3 %}
                     <li>
-                      <img src="{{game.mimage}}" alt="" class="templatemo-item">
+                      <img src="{{game.mimage.url}}" alt="" class="templatemo-item">
                       <h4><a href="{% url 'games:details' game.slug %}">{{game.name}}</a></h4>
                       <h6>{{game.company}}</h6>
                       <span><i class="fa fa-star" style="color: yellow;"></i> {{game.rate}}</span>
@@ -120,7 +120,7 @@
                   <div class="col-lg-3 col-sm-6">
                     <div class="item">
                       <div class="thumb">
-                        <img src="{{stream.image}}" alt="">
+                        <img src="{{stream.image.url}}" alt="">
                         <div class="hover-effect">
                           <div class="content">
                             <div class="live">
@@ -135,7 +135,7 @@
                       </div>
                       <div class="down-content">
                         <div class="avatar">
-                          <img src="{{stream.streamer.profile.image}}" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+                          <img src="{{stream.streamer.profile.image.url}}" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
                         </div>
                         <span><i class="fa fa-check"></i> <a href="{% url 'accounts:profile' stream.streamer.profile.slug %}">{{stream.streamer}}</a></span>
                         <h4>{{stream.title}}</h4>

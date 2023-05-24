@@ -29,7 +29,7 @@
                         
                         
                         {% if request.user.is_authenticated %}
-                            <li><a href="{% url 'accounts:profile' request.user.profile.slug %}">Profile <img src="{{request.user.profile.image}}" alt=""></a></li>
+                            <li><a href="{% url 'accounts:profile' request.user.profile.slug %}">Profile <img src="{{request.user.profile.image.url}}" alt=""></a></li>
                         {% else %}
                             <li><a href="{% url 'accounts:login' %}">Login</a></li>
                         {% endif %}

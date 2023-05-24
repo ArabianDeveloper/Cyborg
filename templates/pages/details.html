@@ -9,11 +9,11 @@
     <div class="feature-banner header-text">
       <div class="row">
         <div class="col-lg-4">
-          <img src="{{game.mimage}}" alt="" style="border-radius: 23px;">
+          <img src="{{game.mimage.url}}" alt="" style="border-radius: 23px;">
         </div>
         <div class="col-lg-8">
           <div class="thumb">
-            <img src="{{game.mimage}}" alt="" style="border-radius: 23px;">
+            <img src="{{game.mimage.url}}" alt="" style="border-radius: 23px;">
             <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
           </div>
         </div>
@@ -57,7 +57,7 @@
           
           {% for image in game.images.all %}
             <div class="col-lg-4">
-              <img src="{{image.url}}" alt="" style="border-radius: 23px; margin-bottom: 30px;">
+              <img src="{{image.image.url}}" alt="" style="border-radius: 23px; margin-bottom: 30px;">
             </div>
           {% endfor %}
             
@@ -97,7 +97,7 @@
     {% for game in games %}
       <div class="col-lg-6">
         <div class="item">
-          <img src="{{game.mimage}}" alt="" class="templatemo-item">
+          <img src="{{game.mimage.url}}" alt="" class="templatemo-item">
           <h4><a href="{% url 'games:details' game.slug %}">{{game.name}}</a></h4><span>{{game.company}}</span>
           <ul>
             <li><i class="fa fa-star"></i> {{game.rate}}</li>

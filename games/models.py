@@ -12,12 +12,12 @@ class Type(models.Model):
 
 class Game(models.Model):
     name = models.CharField(max_length=50)
-    video = models.URLField(max_length=255)
+    gamefile = models.FileField(upload_to="Games/%d/",blank=True, null=True)
+    video = models.URLField(max_length=255, blank=True, null=True)
     company = models.CharField(max_length=50)
-    # mimage = models.URLField(max_length=255)
-    mimage = models.URLField(max_length=255)
+    mimage = models.FileField(upload_to="Games/main-images/%d/",blank=True, null=True)
     downloaders = models.ManyToManyField(User, related_name='games', blank=True)
-    rate = models.DecimalField(max_digits=2, decimal_places=1, blank=True, default=0)
+    rate = models.DecimalField(max_digits=2, decimal_places=1, blank=True)
     type = models.ForeignKey(Type, on_delete=models.PROTECT, blank=True, null=True)
     storage = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
     discription = models.TextField(max_length=300, default="An Amazing Game")
@@ -33,7 +33,7 @@ class Game(models.Model):
 
 
 class Image(models.Model):
-    url = models.URLField(max_length=255)
+    image = models.FileField(upload_to="Images/%d/",blank=True, null=True)
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='images')
     def __str__(self):
-        return self.url
+        return self.game.name
