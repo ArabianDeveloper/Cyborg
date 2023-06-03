@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'games',
     'streams',
     'clips',
+    "django_bootstrap5",
 ]
 
 MIDDLEWARE = [

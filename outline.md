@@ -47,7 +47,4 @@
     4. Online and Offline users
     
     5. The styling of pages:
-        3. login
-        1. password change
-        2. password reset
         4. search
