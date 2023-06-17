@@ -23,12 +23,12 @@ def UserProfile (request):
 
 
 def addfriend(request, slug):
-    print("done")
     friend = get_object_or_404(Profile, slug = slug)
-    print(friend.user)
-    if friend in request.user.friends.all:
-        request.user.friends.remove(friend.user)
-    else :
-        request.user.friends.add(friend.user)
-    print("done")
-    return redirect('/')
+    print(list(request.user.friends.all()))
+    print("-" * 20)
+    print(friend)
+    if friend in request.user.friends.all():
+        request.user.friends.remove(friend)
+    else:
+        request.user.friends.add(friend)
+    return redirect('streams:streams')

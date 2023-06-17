@@ -8,8 +8,8 @@ class Profile(models.Model):
     bio = models.TextField(max_length = 90, blank=True, null=True)
     image = models.FileField(upload_to="Accounts/users/profiles-images/%d/",blank=True, null=True)
     friends = models.ManyToManyField(User, blank=True, related_name="friends")
-    
     slug = models.SlugField(blank=True, null=True)
+
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)

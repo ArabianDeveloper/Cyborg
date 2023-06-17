@@ -25,8 +25,6 @@
 
     5. Followings
     6. Followers - Friends
-    <i class="fa-solid fa-user-minus"></i>
-    <i class="fa-solid fa-user-plus"></i>
 
     7. Live streams
     8. Games have downloaded
@@ -43,8 +41,7 @@
 - uncomplete:
     1. Download the game
     2. Start A live stream
-    3. Follow your Friends
-    4. Online and Offline users
+    3. Online and Offline users
     
-    5. The styling of pages:
-        4. search
+    4. The styling of pages:
+        1. search
