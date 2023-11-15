@@ -7,8 +7,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User,related_name="profile", on_delete=models.CASCADE, verbose_name='user')
     bio = models.TextField(max_length = 90, blank=True, null=True)
     image = models.FileField(upload_to="Accounts/users/profiles-images/%d/",blank=True, null=True)
-    friends = models.ManyToManyField(User, blank=True, related_name="friends")
     slug = models.SlugField(blank=True, null=True)
+    friends = models.ManyToManyField(User, related_name="friends", blank=True)
 
 
     def save(self, *args, **kwargs):

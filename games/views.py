@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import *
 from streams.models import *
 from accounts.models import *
@@ -54,3 +54,8 @@ def search(request):
         'streams' : streams, 
     }
     return render(request, 'pages/search.html', context)
+
+def download(request, slug):
+    game = get_object_or_404(Game, slug = slug)
+    game.downloaders.add(request.user)
+    return redirect('games:details', game.slug)
